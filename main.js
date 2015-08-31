@@ -81,6 +81,7 @@ function Download() {
 			req.pipe(fs.createWriteStream(path));
 			req.on("end", function() {
 				cb();
+				if (progress >= jpgsLength) {$(".progress-bar").css("width", "0");}
 				$(".progress-bar").css("width", ((++progress / jpgsLength) * 100) + "%");
 				resolve();
 			});
@@ -143,9 +144,8 @@ function Download() {
 				}
 			}
 			mangaPdf.end();
-			$(".progress-bar").css("width", "0%");
+			console.log("Finished Generating PDF");
 			deleteFolderRecursive(mangaDirPath);
-			request.post("http://ec2-52-27-221-141.us-west-2.compute.amazonaws.com:2222/");
 			if (callback) callback(fs.readFileSync("./savelocation") + "/" + name + ".pdf");
 		};
 		getMangaUrl(name)
@@ -213,7 +213,9 @@ $(function() {
 	var mangaName = $("input.manga-name");
 	$("#current-save-location").text(fs.readFileSync("savelocation"));
 	$("button.download").click(function() {
-		(new Download()).getManga(convertName(mangaName.val()));
+		(new Download()).getManga(convertName(mangaName.val()), function() {
+			setTimeout(function() {$(".progress-bar").css("width", "0");}, 2000);
+		});
 	});
 	$("button.setlocation").click(function() {
 		var saveLocation = $("input.savelocation").val();

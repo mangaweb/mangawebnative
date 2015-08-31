@@ -14,13 +14,13 @@
 	<img src="no_image_available.png" width="192" height="265">
 	<button class="btn btn-default download">Download</button>
 	<div class="progress">
-	  <div class="progress-bar" role="progressbar" style="width: 0%;">
+	  <div class="progress-bar" style="width: 0%;">
 	    <span class="sr-only"></span>
 	  </div>
 	</div>
 	<div class="bottom">
 		<label>Set Save Location:</label><p id="current-save-location"></p>
-		<input class="form-control savelocation" placeholder="/User/Name/Downloads">
+		<input class="form-control savelocation" type="file" webkitdirectory directory>
 		<button class="btn btn-default setlocation">Set Location</button>
 	</div>
 </body>
