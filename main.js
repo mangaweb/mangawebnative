@@ -39,8 +39,7 @@ function Download() {
 	if (fs.readFileSync("./savelocation").length < 1){
 
 	}
-
-	var options = {reverse: true};
+	var options = {reverse: $("#reverse").is(":checked")};
 	var progress;
 	var jpgsLength;
 	var deleteFolderRecursive = function(path) {

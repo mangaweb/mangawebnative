@@ -3,9 +3,11 @@
 <head>
 	<title>MangaWeb</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
@@ -13,6 +15,7 @@
 	<input class="form-control manga-name" placeholder="manga name">
 	<img src="no_image_available.png" width="192" height="265">
 	<button class="btn btn-default download">Download</button>
+	<label>Reverse: </label><input id="reverse" type="checkbox" data-toggle="toggle">
 	<div class="progress">
 	  <div class="progress-bar" style="width: 0%;">
 	    <span class="sr-only"></span>
